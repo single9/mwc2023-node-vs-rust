@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  node-server:
+    image: node-vs-rust:nodejs
+    build:
+      context: .
+      dockerfile: ./docker/node.Dockerfile
+    ports:
+      - "3000:3000"
+
+  rust-server:
+    image: node-vs-rust:rust
+    build:
+      context: .
+      dockerfile: ./docker/rust.Dockerfile
+    ports:
+      - "3001:3000"
